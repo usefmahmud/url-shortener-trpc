@@ -11,6 +11,9 @@ importers:
       '@hono/node-server':
         specifier: ^2.1.1
         version: 2.1.1(hono@4.13.9)
+      '@hono/trpc-server':
+        specifier: ^0.4.2
+        version: 0.4.2(@trpc/server@11.19.0(typescript@7.0.2))(hono@4.13.9)
       '@trpc/server':
         specifier: ^11.19.0
         version: 11.19.0(typescript@7.0.2)
@@ -194,6 +197,13 @@ packages:
     engines: {node: '>=20'}
     peerDependencies:
       hono: ^4
+
+  '@hono/trpc-server@0.4.2':
+    resolution: {integrity: sha512-3TDrc42CZLgcTFkXQba+y7JlRWRiyw1AqhLqztWyNS2IFT+3bHld0lxKdGBttCtGKHYx0505dM67RMazjhdZqw==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@trpc/server': ^10.10.0 || >11.0.0-rc
+      hono: '>=4.0.0'
 
   '@trpc/server@11.19.0':
     resolution: {integrity: sha512-7C1goiDurz82yFKtZUbEzjXd0Rg/jyisaIZQhdvus+1l7E6mwcEYZXjZ1US/HF8kOyz1LERL8UN3bcboJtjcyQ==}
@@ -438,6 +448,11 @@ snapshots:
 
   '@hono/node-server@2.1.1(hono@4.13.9)':
     dependencies:
+      hono: 4.13.9
+
+  '@hono/trpc-server@0.4.2(@trpc/server@11.19.0(typescript@7.0.2))(hono@4.13.9)':
+    dependencies:
+      '@trpc/server': 11.19.0(typescript@7.0.2)
       hono: 4.13.9
 
   '@trpc/server@11.19.0(typescript@7.0.2)':

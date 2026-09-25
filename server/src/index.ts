@@ -1,13 +1,18 @@
 import "dotenv/config";
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { trpcServer } from "@hono/trpc-server";
+import { appRouter } from "./router.js";
 
 const app = new Hono();
 const PORT = Number(process.env.PORT ?? 8000);
 
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
-});
+app.use(
+  "/trpc/*",
+  trpcServer({
+    router: appRouter,
+  }),
+);
 
 serve(
   {
