@@ -15,13 +15,13 @@ app.use(
   }),
 );
 
-app.get("/trpc-panel", async (c) => {
-  return c.html(
-    renderTrpcPanel(appRouter, {
-      url: `http://localhost:${PORT}/trpc`,
-    }),
-  );
-});
+// app.get("/trpc-panel", async (c) => {
+//   return c.html(
+//     renderTrpcPanel(appRouter, {
+//       url: `http://localhost:${PORT}/trpc`,
+//     }),
+//   );
+// });
 
 serve(
   {
