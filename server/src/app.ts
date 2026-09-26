@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { handle } from "hono/vercel";
 import { cors } from "hono/cors";
 import { trpcServer } from "@hono/trpc-server";
 import { appRouter } from "./router.js";
@@ -24,3 +25,5 @@ app.use(
     router: appRouter,
   }),
 );
+
+export default handle(app);
