@@ -1,12 +1,21 @@
 import "dotenv/config";
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { trpcServer } from "@hono/trpc-server";
 import { appRouter } from "./router.js";
 import { renderTrpcPanel } from "trpc-ui";
+import { connectRedis } from "./redis.js";
 
 const app = new Hono();
 const PORT = Number(process.env.PORT ?? 8000);
+
+app.use(
+  "*",
+  cors({
+    origin: "http://localhost:3330",
+  }),
+);
 
 app.use(
   "/trpc/*",
@@ -22,6 +31,8 @@ app.use(
 //     }),
 //   );
 // });
+
+await connectRedis();
 
 serve(
   {
