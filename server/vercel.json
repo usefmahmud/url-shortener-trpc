@@ -1,8 +1,19 @@
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/trpc/:path*",
-      "destination": "/api"
+      "src": "api/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/trpc",
+      "dest": "/api/index.ts"
+    },
+    {
+      "src": "/trpc/(.*)",
+      "dest": "/api/index.ts"
     }
   ]
 }
